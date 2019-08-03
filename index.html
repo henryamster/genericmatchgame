@@ -11,28 +11,28 @@
 <!-- partial:index.partial.html -->
 <div class="container  ">
   <div class="columns">
-    
+
     <div class="column is-8 is-offset-2 ">
-      <h1 id="title" class="is-size-1 has-text-centered "> Generic Match Game</h1>
-      
+      <h1 id="title" class="is-size-1 has-text-centered "> Match Game</h1>
+
       <p id="record " class="has-text-centered">Record: <span id="gp">0</span> rounds played. <span id="gw">0</span> correct.</p>
-    <br/>
-      <a class="is-size-4 has-text-centered" id="addTermTrigger">&bull;Add Term</a>
-    <p class="has-text-centered box has-background-sas is-hidden" id="addTermContainer"> <label for="term" class="has-text-centered">Term:</label><br/> <input class="input" type="text" name="term" id="term" placeholder="Text input">
-      <label for="definition">Definition:</label>
-      <textarea class="textarea" placeholder="Text input" name="definition" id="definition"></textarea>
       <br/>
-     <a id="addTerm" class="button is-dark">Add term</a>
-   
+      <a class="is-size-4 has-text-centered" id="addTermTrigger">&bull;Add Term <i class="fas fa-angle-down"></i></a>
+      <p class="has-text-centered box has-background-sas is-hidden" id="addTermContainer"> <label for="term" class="has-text-centered">Term:</label><br/> <input class="input" type="text" name="term" id="term" placeholder="Text input">
+        <label for="definition">Definition:</label>
+        <textarea class="textarea" placeholder="Text input" name="definition" id="definition"></textarea>
+        <br/>
+        <a id="addTerm" class="button is-dark"> Add term </a>
+
       </p>
       <br/>
-      
-       <a class="is-size-4 has-text-centered" id="importExportTrigger">&bull;Import/Export Data Set</a>
+
+      <a class="is-size-4 has-text-centered" id="importExportTrigger">&bull;Import/Export/Delete Data Set <i class="fas fa-angle-down"></i></a>
       <div class="has-text-centered box is-centered has-background-sas is-hidden" id="importExportContainer">
         <div class="file is-centered">
-  <label class="file-label">
+          <label class="file-label">
     <input class="file-input" type="file" name="docpicker" id="docpicker">
-    <span class="file-cta">
+    <span class="file-cta has-background-dark has-text-white">
       <span class="file-icon">
         <i class="fas fa-upload"></i>
       </span>
@@ -41,41 +41,37 @@
       </span>
     </span>
   </label>
-</div>
-         <br/>
-       <a id="import" class="button is-dark">Import File</a>
-     <a id="export" class="button is-dark">Save File</a>
+        </div>
+        <br/>
+        <a id="import" class="button is-dark">Import File</a>
+        <a id="export" class="button is-dark">Save File</a>
+        <a id="clearData" class="button is-dark">Clear Data Set</a>
 
       </div>
-      
-       <p class="has-text-centered" id="paContainer">   <a id="playAgain" class="is-centered is-size-3">Play again?</a></p>
-       
-     
-      
-      <div class="box inverse" id="def"><h3 class="is-size-3" id="schema">Definition:</h3>
+
+      <p class="has-text-centered" id="paContainer"> <a id="playAgain" class="is-centered is-size-3">Play again?</a></p>
+
+      <div class="box inverse" id="def">
+        <h3 class="is-size-3" id="schema">Definition:</h3>
         <p id="description">description goes here</p>
       </div>
-      
+
       <div id="answers" class="columns answers is-centered">
         <a class=" column answer inverse " id="a1">answer 1</a>
         <a class=" column answer inverse " id="a2">answer 2</a>
         <a class=" column answer inverse " id="a3">answer 3</a>
         <a class=" column answer inverse " id="a4">answer 4</a>
       </div>
-      
+
       <div class="results">
         <h4 id="result" class="has-text-centered">choose</h4>
       </div>
-      
-       <p class="has-text-centered is-size-7">a fun matching game template designed by 
-<a href="https://henryfritz.xyz/"> Henry Fritz</a>
-</p>
+
+      <p class="has-text-centered is-size-7">a matching game designed by
+        <a href="https://henryfritz.xyz/"> Henry Fritz</a>
+      </p>
     </div>
-    
-    
-    
-    
-    
+
   </div>
 </div>
 <!-- partial -->
