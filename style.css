@@ -1,41 +1,41 @@
 @import url("https://fonts.googleapis.com/css?family=Major+Mono+Display|Space+Mono&display=swap");
 a {
-  color: #c8ecd7;
+  color: #d7e6cf;
   text-decoration: underline;
 }
 a:hover {
-  background: #c8ecd7;
-  color: #371328;
+  background: #d7e6cf;
+  color: #281930;
   border-radius: 4px;
-  border: 2px #371328;
-  box-shadow: 5px 3px #c8ecd7;
+  border: 2px #281930;
+  box-shadow: 5px 3px #d7e6cf;
 }
 
 .has-background-sas {
-  background: #c8ecd7;
-  color: #371328;
+  background: #d7e6cf;
+  color: #281930;
 }
 
 .container {
   font-family: 'Space Mono';
-  background: #371328;
-  color: #c8ecd7;
+  background: #281930;
+  color: #d7e6cf;
   min-height: 100vh;
 }
 
 .inverse {
-  background: #c8ecd7;
-  color: #371328;
+  background: #d7e6cf;
+  color: #281930;
 }
 
 #title {
-  padding-top: 100px;
+  padding-top: 60px;
   font-family: 'Major Mono Display';
 }
 
 #result {
   padding-top: 25px;
-  border-top: 5px solid #c8ecd7;
+  border-top: 5px solid #d7e6cf;
   font-family: 'Major Mono Display';
   font-size: 3em;
 }
@@ -46,7 +46,7 @@ a:hover {
 }
 
 body {
-  background: #c8ecd7;
+  background: #d7e6cf;
 }
 
 .answer {
@@ -58,9 +58,9 @@ body {
   text-align: center;
 }
 .answer:hover {
-  color: #c8ecd7;
-  background: #371328;
-  box-shadow: 2px -4px #c8ecd7;
+  color: #d7e6cf;
+  background: #281930;
+  box-shadow: 2px -4px #d7e6cf;
 }
 
 #paContainer {
@@ -68,8 +68,8 @@ body {
 }
 
 #playAgain {
-  color: #371328;
-  background: #c8ecd7;
+  color: #281930;
+  background: #d7e6cf;
   padding: 4px;
   border-radius: 4px;
   visibility: hidden;
@@ -78,18 +78,18 @@ body {
 
 input[type="text"] {
   font-family: 'Space Mono';
-  background: #371328;
-  color: #c8ecd7;
+  background: #281930;
+  color: #d7e6cf;
 }
 input[type="text"]::placeholder {
-  color: #c8ecd7;
+  color: #d7e6cf;
 }
 
 textarea.textarea {
   font-family: "Space Mono";
-  background: #371328;
-  color: #c8ecd7;
+  background: #281930;
+  color: #d7e6cf;
 }
 textarea.textarea::placeholder {
-  color: #c8ecd7;
+  color: #d7e6cf;
 }
