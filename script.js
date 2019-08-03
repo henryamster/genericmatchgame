@@ -156,11 +156,7 @@ function parseJSONLocally() {
   reader.readAsText(x.files[0]);
 }
 
-/**
-   * Returns ruleset as global rules object
-   * @param {Object} ruleSet
-   * @returns {Object} rules
-   */
+
 function sendTerms(file) {
  $('a1').click();
   for (lbl in file.labels) {
@@ -174,18 +170,12 @@ function sendTerms(file) {
 
 }
 
-/**
-   * @param {Object} file: stringified JSON
-   */
+
 function parseLocalFile(file) {
   return JSON.parse(file);
 }
 
-/**
-   * Downloads content locally to a file of type app/json
-   * @param {String} content: stringified JSON content to be downloaded
-   * @param {String} filename: name of downloaded file
-   */
+
 function download(content, filename) {
   var a = document.createElement("a");
   var blob = new Blob([content], { type: "application/json" });
