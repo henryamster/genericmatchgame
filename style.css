@@ -1,0 +1,95 @@
+@import url("https://fonts.googleapis.com/css?family=Major+Mono+Display|Space+Mono&display=swap");
+a {
+  color: #c8ecd7;
+  text-decoration: underline;
+}
+a:hover {
+  background: #c8ecd7;
+  color: #371328;
+  border-radius: 4px;
+  border: 2px #371328;
+  box-shadow: 5px 3px #c8ecd7;
+}
+
+.has-background-sas {
+  background: #c8ecd7;
+  color: #371328;
+}
+
+.container {
+  font-family: 'Space Mono';
+  background: #371328;
+  color: #c8ecd7;
+  min-height: 100vh;
+}
+
+.inverse {
+  background: #c8ecd7;
+  color: #371328;
+}
+
+#title {
+  padding-top: 100px;
+  font-family: 'Major Mono Display';
+}
+
+#result {
+  padding-top: 25px;
+  border-top: 5px solid #c8ecd7;
+  font-family: 'Major Mono Display';
+  font-size: 3em;
+}
+
+#def {
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+body {
+  background: #c8ecd7;
+}
+
+.answer {
+  margin-top: 12px;
+  width: auto;
+  min-width: 60px;
+  border-radius: 5px;
+  padding: 12px;
+  text-align: center;
+}
+.answer:hover {
+  color: #c8ecd7;
+  background: #371328;
+  box-shadow: 2px -4px #c8ecd7;
+}
+
+#paContainer {
+  margin-top: 20px;
+}
+
+#playAgain {
+  color: #371328;
+  background: #c8ecd7;
+  padding: 4px;
+  border-radius: 4px;
+  visibility: hidden;
+  margin: 0 auto;
+}
+
+input[type="text"] {
+  font-family: 'Space Mono';
+  background: #371328;
+  color: #c8ecd7;
+}
+input[type="text"]::placeholder {
+  color: #c8ecd7;
+}
+
+textarea.textarea {
+  font-family: "Space Mono";
+  background: #371328;
+  color: #c8ecd7;
+}
+textarea.textarea::placeholder {
+  color: #c8ecd7;
+}
