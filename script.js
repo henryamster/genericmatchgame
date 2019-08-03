@@ -6,7 +6,6 @@ let descrips = [];
 
 let numOfTerms = labels.length;
 
-
 /**
                                 Classes
                                 */
@@ -37,18 +36,18 @@ class Round {
     this.id = Math.floor(Math.random() * numOfTerms);
     this.genRandos = function () {
       let randos = new Array();
-      for (var i = 0; i < 3; i++) {
+      for (var i = 0; i < 3; i++) {if (window.CP.shouldStopExecution(0)) break;
         randos.push(Math.floor(Math.random() * numOfTerms));
-      }
+      }window.CP.exitedLoop(0);
       return randos;
     };
     $("def").classList.remove("has-background-success");
     $("def").classList.remove("has-background-danger");
-    for (let i = 1; i < 5; i++) {
+    for (let i = 1; i < 5; i++) {if (window.CP.shouldStopExecution(1)) break;
       $(`a${i}`).classList.remove("has-background-success");
       $(`a${i}`).classList.remove("has-background-danger");
       $("schema").textContent = "Definition:";
-    }
+    }window.CP.exitedLoop(1);
     this.randos = this.genRandos();
     this.generateNew();
   }
@@ -56,10 +55,10 @@ class Round {
     $("description").innerHTML = descrips[this.id];
     this.randos.push(this.id);
     let shuffy = shuffle(this.randos);
-    for (let i = 1; i < 5; i++) {
+    for (let i = 1; i < 5; i++) {if (window.CP.shouldStopExecution(2)) break;
       $(`a${i}`).textContent = labels[shuffy[i - 1]];
       $(`a${i}`).setAttribute("data-id", shuffy[i - 1]);
-    }
+    }window.CP.exitedLoop(2);
     this.listenForAnswer();
   }
 
@@ -67,6 +66,7 @@ class Round {
     if (this.enabled) {
       let gameResult =
       e.getAttribute("data-id") == this.id ? "Correct" : "Incorrect";
+      let nullGame = e.text == "" ? true : false;
       e.classList.add(
       gameResult == "Correct" ?
       "has-background-success" :
@@ -83,7 +83,9 @@ class Round {
       $("result").textContent = this.result;
       this.enabled = false;
       $("playAgain").style.visibility = "visible";
-      this.result == "Correct" ? player.winRound() : player.loseRound();
+      if (!nullGame) {
+        this.result == "Correct" ? player.winRound() : player.loseRound();
+      }
       player.updateStats();
     }
   }
@@ -99,12 +101,40 @@ const player = new Player();
 let round = new Round(player);
 
 /**
-                               Global Watcher
+                               Global Watchers
                                */
 $("playAgain").addEventListener("click", () => {
   if (round.result != "") {
     round = new Round();
   }
+});
+
+$("importExportTrigger").addEventListener("click", () => {
+  $("importExportContainer").classList.toggle("is-hidden");
+  $("importExportTrigger").innerHTML = $("importExportContainer").classList.contains("is-hidden") ? '&bull;Import/Export/Delete Data Set <i class="fas fa-angle-down"></i>' : '&bull;Import/Export/Delete Data Set <i class="fas fa-angle-up"></i>';
+
+});
+
+$("addTermTrigger").addEventListener("click", () => {
+  $("addTermContainer").classList.toggle("is-hidden");
+  $("addTermTrigger").innerHTML = $("addTermContainer").classList.contains("is-hidden") ? '&bull;Add Term <i class="fas fa-angle-down"></i>' : '&bull;Add Term <i class="fas fa-angle-up"></i>';
+});
+
+$("addTerm").addEventListener("click", () => {
+  createNewTerm($("term").value, $("definition").value);
+  $("term").value = "";
+  $("definition").value = "";
+  numOfTerms = labels.length;
+  round = new Round(player);
+});
+$("export").addEventListener("click", () => {
+  downloadTerms();
+});
+$("import").addEventListener("click", () => {
+  parseJSONLocally();
+});
+$("clearData").addEventListener("click", () => {
+  clearDataSet();
 });
 
 /** 
@@ -116,22 +146,21 @@ function $(e) {
 }
 
 function shuffle(array) {
-  for (var i = array.length - 1; i > 0; i--) {
+  for (var i = array.length - 1; i > 0; i--) {if (window.CP.shouldStopExecution(3)) break;
     var j = Math.floor(Math.random() * (i + 1));
     var temp = array[i];
     array[i] = array[j];
     array[j] = temp;
-  }
+  }window.CP.exitedLoop(3);
   return array;
 }
 
 function createNewTerm(label, descrip) {
-  if (label != '' & descrip != '') {
+  if (label != "" & descrip != "") {
     labels.push(label);
     descrips.push(descrip);
     return true;
-  } else
-  {
+  } else {
     return false;
   }
 }
@@ -140,9 +169,8 @@ function downloadTerms() {
     labels: labels,
     descrips: descrips };
 
-  download(JSON.stringify(terms, null, 4), 'terms.json');
+  download(JSON.stringify(terms, null, 4), "terms.json");
 }
-
 
 function parseJSONLocally() {
   let localFile;
@@ -156,9 +184,9 @@ function parseJSONLocally() {
   reader.readAsText(x.files[0]);
 }
 
-
 function sendTerms(file) {
- $('a1').click();
+  $("a1").click();
+
   for (lbl in file.labels) {
     labels.push(file.labels[lbl]);
   }
@@ -167,14 +195,12 @@ function sendTerms(file) {
   }
   numOfTerms = labels.length;
   round = new Round(player);
-
+  $("playAgain").style.visibility = "hidden";
 }
-
 
 function parseLocalFile(file) {
   return JSON.parse(file);
 }
-
 
 function download(content, filename) {
   var a = document.createElement("a");
@@ -184,27 +210,13 @@ function download(content, filename) {
   a.click();
 }
 
-$('importExportTrigger').addEventListener('click', () => {
-  $('importExportContainer').classList.toggle('is-hidden');
-});
+function clearDataSet() {
 
-$('addTermTrigger').addEventListener('click', () => {
-  $('addTermContainer').classList.toggle('is-hidden');
-});
-
-$('addTerm').addEventListener('click', () => {
-  createNewTerm($('term').value,
-  $('definition').value);
-  $('term').value = '';
-  $('definition').value = '';
+  labels = [];
+  descrips = [];
   numOfTerms = labels.length;
-  round = new Round(player);
-});
-$('export').addEventListener('click', () => {
-  downloadTerms();
-});
-$('import').addEventListener('click', () => {
-  parseJSONLocally();
-
-
-});
+  round.generateNew();
+  $("a1").click();
+  $('schema').textContent = "Data Set Cleared!";
+  $('description').textContent = "Please add terms or import a new Data Set!";
+}
