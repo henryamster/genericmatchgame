@@ -25,13 +25,17 @@ class Player {
   updateStats() {
     $("gp").textContent = this.rounds;
     $("gw").textContent = this.score;
+  }
+  clearScore() {
+    this.score = 0;
+    this.rounds = 0;
   }}
 
 
 class Round {
 
   constructor(player) {_defineProperty(this, "numOfTerms", labels.length);
-    this.enabled = (numOfTerms>0);
+    this.enabled = numOfTerms > 0;
     this.result = "";
     this.id = Math.floor(Math.random() * numOfTerms);
     this.genRandos = function () {
@@ -52,7 +56,7 @@ class Round {
     this.generateNew();
   }
   generateNew() {
-    $("description").innerHTML = (descrips[this.id])?descrips[this.id] : 'A definition will appear here.';
+    $("description").innerHTML = descrips[this.id] ? descrips[this.id] : 'A definition will appear here.';
     this.randos.push(this.id);
     let shuffy = shuffle(this.randos);
     for (let i = 1; i < 5; i++) {
@@ -92,7 +96,10 @@ class Round {
 
   listenForAnswer() {
     $("answers").addEventListener("click", e => {
-      this.checkAnswer(e.target);
+      if (!e.target.id == 'answers') {
+        this.checkAnswer(e.target);
+      }
+
     });
   }}
 
@@ -219,4 +226,5 @@ function clearDataSet() {
   $("a1").click();
   $('schema').textContent = "Data Set Cleared!";
   $('description').textContent = "Please add terms or import a new Data Set!";
+  player.clearScore();
 }

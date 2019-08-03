@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Major+Mono+Display|Space+Mono&display=swap");
 a {
+  margin-top: 4px;
   color: #d7e6cf;
   text-decoration: underline;
 }
