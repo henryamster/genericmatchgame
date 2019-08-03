@@ -162,7 +162,7 @@ function parseJSONLocally() {
    * @returns {Object} rules
    */
 function sendTerms(file) {
-  console.log(file);
+ $('a1').click();
   for (lbl in file.labels) {
     labels.push(file.labels[lbl]);
   }
