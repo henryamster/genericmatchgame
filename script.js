@@ -31,7 +31,7 @@ class Player {
 class Round {
 
   constructor(player) {_defineProperty(this, "numOfTerms", labels.length);
-    this.enabled = true;
+    this.enabled = (numOfTerms>0);
     this.result = "";
     this.id = Math.floor(Math.random() * numOfTerms);
     this.genRandos = function () {
