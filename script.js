@@ -36,18 +36,18 @@ class Round {
     this.id = Math.floor(Math.random() * numOfTerms);
     this.genRandos = function () {
       let randos = new Array();
-      for (var i = 0; i < 3; i++) {if (window.CP.shouldStopExecution(0)) break;
+      for (var i = 0; i < 3; i++) {
         randos.push(Math.floor(Math.random() * numOfTerms));
-      }window.CP.exitedLoop(0);
+      }
       return randos;
     };
     $("def").classList.remove("has-background-success");
     $("def").classList.remove("has-background-danger");
-    for (let i = 1; i < 5; i++) {if (window.CP.shouldStopExecution(1)) break;
+    for (let i = 1; i < 5; i++) {
       $(`a${i}`).classList.remove("has-background-success");
       $(`a${i}`).classList.remove("has-background-danger");
       $("schema").textContent = "Definition:";
-    }window.CP.exitedLoop(1);
+    }
     this.randos = this.genRandos();
     this.generateNew();
   }
@@ -55,10 +55,10 @@ class Round {
     $("description").innerHTML = descrips[this.id];
     this.randos.push(this.id);
     let shuffy = shuffle(this.randos);
-    for (let i = 1; i < 5; i++) {if (window.CP.shouldStopExecution(2)) break;
+    for (let i = 1; i < 5; i++) {
       $(`a${i}`).textContent = labels[shuffy[i - 1]];
       $(`a${i}`).setAttribute("data-id", shuffy[i - 1]);
-    }window.CP.exitedLoop(2);
+    }
     this.listenForAnswer();
   }
 
@@ -146,12 +146,12 @@ function $(e) {
 }
 
 function shuffle(array) {
-  for (var i = array.length - 1; i > 0; i--) {if (window.CP.shouldStopExecution(3)) break;
+  for (var i = array.length - 1; i > 0; i--) {
     var j = Math.floor(Math.random() * (i + 1));
     var temp = array[i];
     array[i] = array[j];
     array[j] = temp;
-  }window.CP.exitedLoop(3);
+  }
   return array;
 }
 
