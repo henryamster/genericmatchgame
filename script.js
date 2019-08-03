@@ -52,7 +52,7 @@ class Round {
     this.generateNew();
   }
   generateNew() {
-    $("description").innerHTML = descrips[this.id];
+    $("description").innerHTML = (descrips[this.id])?descrips[this.id] : 'A definition will appear here.';
     this.randos.push(this.id);
     let shuffy = shuffle(this.randos);
     for (let i = 1; i < 5; i++) {
